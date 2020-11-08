@@ -12,6 +12,7 @@ def wifi():
     shutil.copy(Path("/home/pi/scripts/dnsmasq.conf.wifi"), Path("/etc/dnsmasq.conf"))
     subprocess.check_call(["sudo", "systemctl", "restart", "dhcpcd"])
     subprocess.check_call(["sudo", "systemctl", "restart", "dnsmasq"])
+    subprocess.run(["sudo", "reboot"])
 
 
 
@@ -22,6 +23,7 @@ def access_point():
     shutil.copy(Path("/home/pi/scripts/dnsmasq.conf.access"), Path("/etc/dnsmasq.conf"))
     subprocess.check_call(["sudo", "systemctl", "restart", "dhcpcd"])
     subprocess.check_call(["sudo", "systemctl", "restart", "dnsmasq"])
+    subprocess.run(["sudo", "reboot"])
 
 if __name__ == "__main__":
     app()
